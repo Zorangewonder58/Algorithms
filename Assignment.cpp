@@ -15,7 +15,7 @@ void printArray(string label, int array[], int size)
 
 int main()
 {
-    int example[5] = {0,1,2,3,4,5};
+    int example[5] = {0,1,2,3,4};
 
     printArray("Example", example, 5);
     return 0;
