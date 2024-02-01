@@ -1,4 +1,7 @@
-Example: 67 22 95 11 56 Keys: 67 90 25 65 63 
+Example: 67 22 95 11 56 78 33 89 44 5 70 14 99 38 73 20 81 50 7 65 
+Keys: 67 90 25 65 63 76 7 99 100 32 
+
+========RESULTS========
 67 FOUND AT INDEX: 0
 90 MISSING
 25 MISSING
@@ -10,4 +13,4 @@ Example: 67 22 95 11 56 Keys: 67 90 25 65 63
 100 MISSING
 32 MISSING
 
- (c) 2024 TRUSTY  Jaden Williams Ashiera Preston  
+ (c) 2024 TRUSTY  Jaden Williams Ashiera Preston 

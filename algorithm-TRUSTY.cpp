@@ -44,11 +44,14 @@ int main()
     int example[20] = {67,22,95,11,56,78,33,89,44,5,70,14,99,38,73,20,81,50,7,65};
     int keys[10] = {67, 90, 25, 65, 63, 76, 7, 99, 100, 32};
 
-    printArray("Example", example, 5);
-    printArray("Keys", keys, 5);
+    printArray("Example", example, 20);
+    cout << endl;
+    printArray("Keys", keys, 10);
 
     cout << endl;
-    
+
+    cout << endl << "========RESULTS========" << endl;
+
     for(int i=0; i < 10; i++)
     {
         PrintSearch(ItrLinearSearch(example, 20, keys[i]), keys[i]);
