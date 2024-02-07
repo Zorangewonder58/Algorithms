@@ -8,7 +8,7 @@ using namespace std;
 
 void show(string, int[], int);
 int itrLinearSearch(int[], int, int);
-void printSearch(int, int, string);
+void printSearch(int, int, string, string);
 int* pRand(int);
 
 int main()
@@ -44,7 +44,7 @@ int main()
     //Search test array
     for(int i=0; i < 10; i++)
     {
-        printSearch(itrLinearSearch(test, 20, keys[i]), keys[i], "TEST ARRAY");
+        printSearch(itrLinearSearch(test, 20, keys[i]), keys[i], "TEST ARRAY", "LINEAR SEARCH");
     }
 
     cout << endl << endl;
@@ -52,7 +52,7 @@ int main()
     //Search array of size 0
     for(int i=0; i < 10; i++)
     {
-        printSearch(itrLinearSearch(arr0, 0, keys[i]), keys[i], "SIZE 0");
+        printSearch(itrLinearSearch(arr0, 0, keys[i]), keys[i], "SIZE 0", "LINEAR SEARCH");
     }
 
     cout << endl << endl;
@@ -60,7 +60,7 @@ int main()
     //Search array of size 1
     for(int i=0; i < 10; i++)
     {
-        printSearch(itrLinearSearch(arr1, 1, keys[i]), keys[i], "SIZE 1");
+        printSearch(itrLinearSearch(arr1, 1, keys[i]), keys[i], "SIZE 1", "LINEAR SEARCH");
     }
 
     cout << endl << endl;
@@ -68,13 +68,13 @@ int main()
     //Search array of size 2
     for(int i=0; i < 10; i++)
     {
-        printSearch(itrLinearSearch(arr2, 2, keys[i]), keys[i],"SIZE 2");
+        printSearch(itrLinearSearch(arr2, 2, keys[i]), keys[i],"SIZE 2", "LINEAR SEARCH");
     }
 
     //Search array of size 2
     for(int i=0; i < 10; i++)
     {
-        printSearch(itrLinearSearch(arr2reverse, 2, keys[i]), keys[i],"SIZE 2");
+        printSearch(itrLinearSearch(arr2reverse, 2, keys[i]), keys[i],"SIZE 2", "LINEAR SEARCH");
     }
 
     cout << endl << endl;
@@ -82,7 +82,7 @@ int main()
     //Search array of size 10
     for(int i=0; i < 10; i++)
     {
-        printSearch(itrLinearSearch(arr10, 10, keys[i]), keys[i],"SIZE 10");
+        printSearch(itrLinearSearch(arr10, 10, keys[i]), keys[i],"SIZE 10", "LINEAR SEARCH");
     }
 
     //Search array of size 100, DO NOT PRINT
@@ -127,13 +127,13 @@ int itrLinearSearch(int array[], int size, int key)
 }
 
 //SEARCH RESULT PRINT
-void printSearch(int position, int key, string label)
+void printSearch(int position, int key, string label, string searchtype)
 {
     cout << label << ": \n"; 
     if (position == -1)
-        cout << setw(3) << key << " -- MISSING" << endl;
+        cout << setw(3) << key << " -- MISSING USING " << searchtype<< endl;
     else
-        cout << setw(3) << key << " -- FOUND AT INDEX: " << position << endl;
+        cout << setw(3) << key << " -- FOUND USING " << searchtype <<  " AT INDEX: " << position << endl;
 }
 
 //PSEUDORANDOM ARRAY GENERATOR
