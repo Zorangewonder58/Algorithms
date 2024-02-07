@@ -14,9 +14,10 @@ int* pRand(int);
 int main()
 {
     int test[20] = {67,22,95,11,56,78,33,89,44,5,70,14,99,38,73,20,81,50,7,65};
-    int* arr0 = {};
-    int* arr1 = pRand(1);
-    int* arr2 = pRand(2);
+    int arr0[0] = {};
+    int arr1[1] = {14};
+    int arr2[2] = {20, 7};
+    int arr2reverse[2] = {7, 20};
     int* arr10 = pRand(10);
     int* arr100 = pRand(100);
     int* arr1000 = pRand(1000);
@@ -28,6 +29,7 @@ int main()
     show("\nSIZE 1", arr1, 1);
     show("\nSIZE 2", arr2, 2);
     show("\nSIZE 10", arr10, 10);
+    show("\nSIZE 2 Reverse", arr2reverse, 2);
     //show("\nSIZE 100", arr100, 100);
     //show("\nSIZE 1000", arr1000, 1000);
     show("\nTEST ARRAY", test, 20);
@@ -67,6 +69,12 @@ int main()
     for(int i=0; i < 10; i++)
     {
         printSearch(itrLinearSearch(arr2, 2, keys[i]), keys[i],"SIZE 2");
+    }
+
+    //Search array of size 2
+    for(int i=0; i < 10; i++)
+    {
+        printSearch(itrLinearSearch(arr2reverse, 2, keys[i]), keys[i],"SIZE 2");
     }
 
     cout << endl << endl;
