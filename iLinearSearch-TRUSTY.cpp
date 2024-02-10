@@ -3,101 +3,128 @@
 #include <random>
 using namespace std;
 
-//ALGORITHM: ITERATIVE LINEAR SEARCH
+//ALGORITHM: INSTRUMENTED ITERATIVE LINEAR SEARCH
 //TEAM: TRUSTY JADEN WILLIAMS ASHIERA PRESTON
 
 void show(string, int[], int);
-int iLinearSearch(int[], int, int);
+int iLinearSearch(int[], int, int, int&);
 void printSearch(int, int, string, string);
+void printInstrumentedSearch(string, int, string, int, int);
 int* pRand(int);
 
 int main()
 {
-    int test[20] = {67,22,95,11,56,78,33,89,44,5,70,14,99,38,73,20,81,50,7,65};
-    int arr0[0] = {};
-    int arr1[1] = {14};
-    int arr2[2] = {20, 7};
-    int arr2reverse[2] = {7, 20};
-    int* arr10 = pRand(10);
-    int* arr100 = pRand(100);
-    int* arr1000 = pRand(1000);
+    //DECLARATIONS AND INITIALIZATIONS
 
-    int* cases[] = {test, arr0, arr1, arr2, arr10, arr100, arr1000};
-    int keys[10] = {67, 14, 25, 65, 80, 78, 7, 98, 100, 32};
+    //Array of size 0
+    int arr0[0] = {};
+
+    //Array of size 2
+    int arr1[1] = {14};
+
+    //Array of size 2 
+    int arr2[2] = {20, 7};
+
+    //Array of size 8 
+    int arr8[8] = {90, 25, 43, 5, 7, 21, 61, 75};
+
+    //Array of size 16
+    int* arr16 = pRand(16);
+
+    //Array of size 64 
+    int* arr64 = pRand(64);
+
+    //Array of size 128 
+    int* arr128 = pRand(128);
+
+    //Initialize compare counter to zero
+    int compares = 0;
+
+    //Array of test cases
+    int* cases[] = {arr0, arr1, arr2, arr8, arr16, arr64, arr128};
+
+    int keys[10] = {49, 32, 21, 70, 75, 55, 14, 7, 59, 90};
 
     show("\nSIZE 0", arr0, 0);
     show("\nSIZE 1", arr1, 1);
     show("\nSIZE 2", arr2, 2);
-    show("\nSIZE 10", arr10, 10);
-    show("\nSIZE 2 Reverse", arr2reverse, 2);
-    //show("\nSIZE 100", arr100, 100);
-    //show("\nSIZE 1000", arr1000, 1000);
-    show("\nTEST ARRAY", test, 20);
+    show("\nSIZE8", arr8, 8);
+    show("\nSIZE 16", arr16, 16);
+    //show("\nSIZE 64", arr64, 64);
+    //show("\nSIZE 128", arr128, 128);
 
-    cout << endl;
-    show("KEYS", keys, 10);
+    show("\nKEYS", keys, 10);
 
-    cout << endl;
-
-    cout << endl << "\n==========RESULTS==========\n" << endl;
-
-    //Search test array
-    for(int i=0; i < 10; i++)
-    {
-        printSearch(itrLinearSearch(test, 20, keys[i]), keys[i], "TEST ARRAY", "LINEAR SEARCH");
-    }
-
-    cout << endl << endl;
+    cout << endl << "\n==========Instrumented Search RESULTS==========\n" << endl;
 
     //Search array of size 0
     for(int i=0; i < 10; i++)
     {
-        printSearch(itrLinearSearch(arr0, 0, keys[i]), keys[i], "SIZE 0", "LINEAR SEARCH");
+        printInstrumentedSearch("iLinearSearch", keys[i], "Array0[0]", compares, iLinearSearch(arr0, 0, keys[i], compares));
+        cout << endl;
     }
 
-    cout << endl << endl;
+    cout << endl << "\n==========SEARCH CASE SIZE 1==========\n" << endl;
+    compares = 0;
 
     //Search array of size 1
     for(int i=0; i < 10; i++)
     {
-        printSearch(itrLinearSearch(arr1, 1, keys[i]), keys[i], "SIZE 1", "LINEAR SEARCH");
+        printInstrumentedSearch("iLinearSearch", keys[i], "Array1[1]", compares, iLinearSearch(arr1, 1, keys[i], compares));
+        cout << endl;
     }
 
-    cout << endl << endl;
+     cout << endl << "\n==========SEARCH CASE SIZE 2==========\n" << endl;
+    compares = 0;
 
     //Search array of size 2
     for(int i=0; i < 10; i++)
     {
-        printSearch(itrLinearSearch(arr2, 2, keys[i]), keys[i],"SIZE 2", "LINEAR SEARCH");
+        printInstrumentedSearch("iLinearSearch", keys[i], "Array2[2]", compares, iLinearSearch(arr2, 2, keys[i], compares));
+        cout << endl;
     }
 
-    //Search array of size 2
+     cout << endl << "\n==========SEARCH CASE SIZE 8==========\n" << endl;
+    compares = 0;
+
+    //Search array of size 8
     for(int i=0; i < 10; i++)
     {
-        printSearch(itrLinearSearch(arr2reverse, 2, keys[i]), keys[i],"SIZE 2", "LINEAR SEARCH");
+        printInstrumentedSearch("iLinearSearch", keys[i], "Array8[8]", compares, iLinearSearch(arr8, 8, keys[i], compares));
+        cout << endl;
     }
 
-    cout << endl << endl;
+     cout << endl << "\n==========SEARCH CASE SIZE 16==========\n" << endl;
+    compares = 0;
 
-    //Search array of size 10
+    //Search array of size 16
     for(int i=0; i < 10; i++)
     {
-        printSearch(itrLinearSearch(arr10, 10, keys[i]), keys[i],"SIZE 10", "LINEAR SEARCH");
+        printInstrumentedSearch("iLinearSearch", keys[i], "Array16[16]", compares, iLinearSearch(arr16, 16, keys[i], compares));
+        cout << endl;
     }
 
-    //Search array of size 100, DO NOT PRINT
+   
+    cout << endl << "\n==========SEARCH CASE SIZE 64==========\n" << endl;
+    compares = 0;
+
+    //Search array of size 16
     for(int i=0; i < 10; i++)
     {
-        itrLinearSearch(arr100, 100, keys[i]);
+        printInstrumentedSearch("iLinearSearch", keys[i], "Array64[64]", compares, iLinearSearch(arr64, 64, keys[i], compares));
+        cout << endl;
     }
 
-    //Search array of size 1000, DO NOT PRINT
+    cout << endl << "\n==========SEARCH CASE SIZE 128==========\n" << endl;
+    compares = 0;
+
+    //Search array of size 16
     for(int i=0; i < 10; i++)
     {
-        itrLinearSearch(arr1000, 1000, keys[i]);
+        printInstrumentedSearch("iLinearSearch", keys[i], "Array128[128]", compares, iLinearSearch(arr128, 128, keys[i], compares));
+        cout << endl;
     }
 
-    cout << endl << "(c) 2024 TRUSTY  Jaden Williams Ashiera Preston\n  ";
 
     return 0;
 }
@@ -135,6 +162,14 @@ void printSearch(int position, int key, string label, string searchtype)
         cout << setw(3) << key << " -- MISSING USING " << searchtype<< endl;
     else
         cout << setw(3) << key << " -- FOUND USING " << searchtype <<  " AT INDEX: " << position << endl;
+}
+
+void printInstrumentedSearch(string label, int key, string arrayname, int compares, int position)
+{
+    if(position != -1)
+        cout << label << ": KEY " << key << " FOUND in ARRAY " << arrayname << ": " << compares << " COMPARES";
+    else 
+        cout << label << ": KEY " << key << " MISSING from ARRAY " << arrayname << ": " << compares << " COMPARES";
 }
 
 //PSEUDORANDOM ARRAY GENERATOR
