@@ -54,9 +54,9 @@ int main()
 
     show("\nKEYS", keys, 10);
 
-    cout << endl << "\n===================Instrumented Search RESULTS=================\n" << endl;
+    cout << endl << "\n===================Instrumented Search RESULTS======================\n" << endl;
 
-    cout << endl << "\n=======================SEARCH CASE SIZE 0======================\n" << endl;
+    cout << endl << "\n=======================SEARCH CASE SIZE 0===========================\n" << endl;
 
     //Search array of size 0
     for(int i=0; i < 10; i++)
@@ -66,7 +66,7 @@ int main()
         cout << endl;
     }
 
-    cout << endl << "\n=========================SEARCH CASE SIZE 1====================\n" << endl;
+    cout << endl << "\n=========================SEARCH CASE SIZE 1=========================\n" << endl;
 
     //Search array of size 1
     for(int i=0; i < 10; i++)
@@ -76,7 +76,7 @@ int main()
         cout << endl;
     }
 
-    cout << endl << "\n=========================SEARCH CASE SIZE 2======================\n" << endl;
+    cout << endl << "\n=========================SEARCH CASE SIZE 2=========================\n" << endl;
 
     //Search array of size 2
     for(int i=0; i < 10; i++)
@@ -86,7 +86,7 @@ int main()
         cout << endl;
     }
 
-    cout << endl << "\n=========================SEARCH CASE SIZE 8=======================\n" << endl;
+    cout << endl << "\n=========================SEARCH CASE SIZE 8=========================\n" << endl;
 
     //Search array of size 8
     for(int i=0; i < 10; i++)
@@ -96,7 +96,7 @@ int main()
         cout << endl;
     }
 
-    cout << endl << "\n=========================SEARCH CASE SIZE 16=======================\n" << endl;
+    cout << endl << "\n=========================SEARCH CASE SIZE 16========================\n" << endl;
 
     //Search array of size 16
     for(int i=0; i < 10; i++)
@@ -185,3 +185,5 @@ int* pRand(int size) {
 
     return random_numbers;
 }
+
+
