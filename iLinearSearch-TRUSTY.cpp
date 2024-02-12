@@ -118,7 +118,7 @@ int main()
 
     cout << endl << "\n=========================SEARCH CASE SIZE 128=======================\n" << endl;
 
-    //Search array of size 16
+    //Search array of size 128
     for(int i=0; i < 10; i++)
     {
         compares = 0;
